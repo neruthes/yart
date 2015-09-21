@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>John Appleseed — Resume</title>
+	<link rel="shortcut icon" href="/favicon.ico"/>
+	<link rel="apple-touch-icon" href="/joyneop.png"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="yart-main.css">
+	<script src="./yart.js"></script>
+	<style>
+	#source-md {
+		display: none;
+	}
+	</style>
+	<script type="text/javascript">
+	var showResumeContentOnLoad = function(){
+		window.theDoms = document.body.getElementsByClassName('lazy-display-animation');
+		window.theDelay = 50;
+		for (var i = 0; i < window.theDoms.length; i++) {
+			setTimeout((function(ii){
+				var _fu = function () {
+					window.theDoms[ii].classList.add('played');
+				};
+				return _fu;
+			})(i), window.theDelay*i);
+		};
+		var anchors = document.body.getElementsByTagName('a');
+		for (var i = anchors.length - 1; i >= 0; i--) {
+			anchors[i].target = '_blank';
+		};
+		var asyncImages = document.body.querySelectorAll('img[data-async-src]');
+		for (var i = asyncImages.length - 1; i >= 0; i--) {
+			asyncImages[i].src = asyncImages[i].getAttribute('data-async-src');
+		};
+	};
+	window.addEventListener('load', showResumeContentOnLoad, false);
+	</script>
+</head>
+<body>
+	<div class="download-button-container">
+		<a class="download-button lazy-display-animation" href="/resume/joyneop_resume.pdf">Download PDF</a>
+	</div>
+	<div class="page-start"></div>
+	<div id="source-md">
+		@ John Appleseed
+
+		@@ TEL: [+1 (408) 555-5555](tel:+1-408-555-5555)
+		@@ Email: [john.appleseed@example.com](mailto:john.appleseed@example.com)
+
+		# Experience
+
+		// Current
+
+		## Job Title @ Company {10/2015—Present}
+
+		Detailed description of this period of experience.
+
+		:: Learn more: [github.com/joyneop/yart](https://github.com/joyneop/yart)
+
+		==== A line starting with four equal signs will generate a page break for printing.
+	</div>
+	<div class="grand cont" id="cont">
+	</div>
+	<script type="text/javascript">
+	var source = document.getElementById('source-md').innerHTML;
+	document.getElementById('source-md').remove()
+	resumeMarkdownParser(source);
+	</script>
+</body>
+</html>
