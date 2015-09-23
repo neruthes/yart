@@ -25,11 +25,13 @@ Detailed description of this period of experience.
 
 ## Customizing
 
-Put your content in `#source-md` element of `resume.html`.
+Put your content in the `#source-md` element of `resume.html`.
 
 You can remove the download link if you'd like.
 
 Don't forget to change the webpage title.
+
+If you don't want to add an avatar, simply remove `<img class="avatar" data-async-src="./avatar.png">` in the `#cont` element of `resume.html`. 
 
 ## Themes
 
