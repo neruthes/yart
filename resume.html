@@ -14,7 +14,7 @@
 	}
 	</style>
 	<script type="text/javascript">
-	var showResumeContentOnLoad = function(){
+	window.addEventListener('load', function(){
 		window.theDoms = document.body.getElementsByClassName('lazy-display-animation');
 		window.theDelay = 50;
 		for (var i = 0; i < window.theDoms.length; i++) {
@@ -25,16 +25,13 @@
 				return _fu;
 			})(i), window.theDelay*i);
 		};
-		var anchors = document.body.getElementsByTagName('a');
-		for (var i = anchors.length - 1; i >= 0; i--) {
+		[].map.call(document.body.getElementsByTagName('a'), function (n) {
 			anchors[i].target = '_blank';
-		};
-		var asyncImages = document.body.querySelectorAll('img[data-async-src]');
-		for (var i = asyncImages.length - 1; i >= 0; i--) {
-			asyncImages[i].src = asyncImages[i].getAttribute('data-async-src');
-		};
-	};
-	window.addEventListener('load', showResumeContentOnLoad, false);
+		});
+		[].map.call(document.body.querySelectorAll('img[data-async-src]'), function (n) {
+			n.src = n.getAttribute('data-async-src');
+		});
+	}, false);
 	</script>
 </head>
 <body>
