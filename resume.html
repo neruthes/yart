@@ -5,7 +5,6 @@
 	<title>John Appleseed — Resume</title>
 	<link rel="shortcut icon" href="/favicon.ico"/>
 	<link rel="apple-touch-icon" href="/joyneop.png"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="yart-main.css">
 	<script src="./yart.js"></script>
 	<style>
@@ -26,7 +25,7 @@
 			})(i), window.theDelay*i);
 		};
 		[].map.call(document.body.getElementsByTagName('a'), function (n) {
-			anchors[i].target = '_blank';
+			n.target = '_blank';
 		});
 		[].map.call(document.body.querySelectorAll('img[data-async-src]'), function (n) {
 			n.src = n.getAttribute('data-async-src');
