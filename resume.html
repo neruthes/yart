@@ -30,14 +30,25 @@
 		[].map.call(document.body.querySelectorAll('img[data-async-src]'), function (n) {
 			n.src = n.getAttribute('data-async-src');
 		});
+		
+                window.printPdf = (id) => {
+                  const newStr = document.all.item(id).innerHTML;
+                  const oldstr = document.body.innerHTML;
+
+                  document.body.innerHTML = `<html><head><title></title></head><body>${newStr}</body>`;
+                  window.print();
+
+                  document.body.innerHTML = oldstr;
+                  return false;
+                };
 	}, false);
 	</script>
 </head>
 <body>
 	<div class="download-button-container">
-		<a class="download-button lazy-display-animation" href="/resume/joyneop_resume.pdf">Download PDF</a>
+		<a class="download-button lazy-display-animation" click="prinfPdf('page-start')">Download PDF</a>
 	</div>
-	<div class="page-start"></div>
+	<div class="page-start" id="page-start"></div>
 	<div id="source-md">
 		@ John Appleseed
 
